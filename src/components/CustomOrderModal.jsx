@@ -155,7 +155,7 @@ export default function CustomOrderModal({ open, onClose }) {
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+              <div className="hidden md:grid gap-4 md:grid-cols-3">
                 <div>
                   <label className="block text-[10px] uppercase tracking-extreme text-luxury-muted mb-2">Name</label>
                   <input
@@ -185,6 +185,7 @@ export default function CustomOrderModal({ open, onClose }) {
                   />
                 </div>
               </div>
+              <p className="text-xs text-luxury-muted md:hidden">On mobile, only cake add-ons are shown. Open on desktop to fill contact details.</p>
 
               <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
                 <button
