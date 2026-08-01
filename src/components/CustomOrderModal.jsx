@@ -65,7 +65,7 @@ export default function CustomOrderModal({ open, onClose }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.25 }}
-            className="w-full max-w-2xl bg-luxury-cream text-luxury-charcoal rounded-3xl shadow-2xl border border-luxury-sand overflow-hidden"
+            className="w-full max-w-[100vw] sm:max-w-2xl bg-luxury-cream text-luxury-charcoal rounded-3xl shadow-2xl border border-luxury-sand overflow-hidden max-h-[calc(100vh-2rem)]"
             onClick={event => event.stopPropagation()}
           >
             <div className="flex items-center justify-between px-6 py-5 border-b border-luxury-sand">
@@ -82,7 +82,7 @@ export default function CustomOrderModal({ open, onClose }) {
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-5 p-6">
+            <form onSubmit={handleSubmit} className="space-y-5 p-4 sm:p-6">
               <div className="space-y-2">
                 <label className="block text-sm font-medium uppercase tracking-[0.28em] text-luxury-muted">Cake Style Idea</label>
                 <textarea
@@ -116,7 +116,7 @@ export default function CustomOrderModal({ open, onClose }) {
                 </div>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                 <div>
                   <label className="block text-[10px] uppercase tracking-extreme text-luxury-muted mb-2">Adone Type</label>
                   <select
@@ -155,7 +155,7 @@ export default function CustomOrderModal({ open, onClose }) {
                 </div>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                 <div>
                   <label className="block text-[10px] uppercase tracking-extreme text-luxury-muted mb-2">Name</label>
                   <input
