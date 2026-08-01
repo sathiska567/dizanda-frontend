@@ -82,7 +82,7 @@ export default function CustomOrderModal({ open, onClose }) {
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-5 p-4 sm:p-6">
+            <form onSubmit={handleSubmit} className="space-y-5 p-4 sm:p-6 overflow-y-auto max-h-[calc(100vh-18rem)]">
               <div className="space-y-2">
                 <label className="block text-sm font-medium uppercase tracking-[0.28em] text-luxury-muted">Cake Style Idea</label>
                 <textarea
