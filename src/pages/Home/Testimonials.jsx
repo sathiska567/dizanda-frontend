@@ -17,7 +17,7 @@ const PRESS_QUOTES = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 px-6 md:px-12 max-w-6xl mx-auto text-center">
+    <section className="py-24 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto text-center">
       <p className="text-xs uppercase tracking-extreme text-luxury-muted mb-12">Accolades & Praise</p>
       
       <div className="grid md:grid-cols-3 gap-12">

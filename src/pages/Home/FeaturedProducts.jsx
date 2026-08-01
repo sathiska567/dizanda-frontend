@@ -26,7 +26,7 @@ const SIGNATURE_CAKES = [
 
 export default function FeaturedProducts() {
   return (
-    <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+    <section className="py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
         <div>
           <p className="text-xs uppercase tracking-extreme text-luxury-muted mb-3">Signature Menu</p>

@@ -21,7 +21,7 @@ export default function About() {
   return (
     <div className="pt-32 pb-24 bg-luxury-cream text-luxury-charcoal">
       {/* Brand Ethos Hero */}
-      <section className="px-6 md:px-12 max-w-4xl mx-auto text-center mb-20">
+      <section className="px-4 sm:px-6 md:px-12 max-w-4xl mx-auto text-center mb-20">
         <motion.p 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}

@@ -1,15 +1,20 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CustomOrderModal from './components/CustomOrderModal';
+import CustomerOrderBanner from './components/CustomerOrderBanner';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Gallery from './pages/Gallery/Gallery';
 
 function App() {
+  const [isCustomModalOpen, setIsCustomModalOpen] = useState(false);
+
   return (
     <Router>
-      <div className="min-h-screen flex flex-col justify-between bg-luxury-cream text-luxury-charcoal">
+      <div className="min-h-screen flex flex-col justify-between bg-luxury-cream text-luxury-charcoal overflow-x-hidden">
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -20,6 +25,8 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <CustomerOrderBanner onOpen={() => setIsCustomModalOpen(true)} />
+        <CustomOrderModal open={isCustomModalOpen} onClose={() => setIsCustomModalOpen(false)} />
       </div>
     </Router>
   );

@@ -18,7 +18,7 @@ const COLLECTIONS = [
 
 export default function Collections() {
   return (
-    <section className="bg-luxury-cream py-24 px-6 md:px-12 max-w-7xl mx-auto">
+    <section className="bg-luxury-cream py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-light tracking-wide text-luxury-charcoal">Curated Masterpieces</h2>
         <div className="w-12 h-[1px] bg-luxury-champagne mx-auto mt-4" />

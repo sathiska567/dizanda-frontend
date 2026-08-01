@@ -1,6 +1,6 @@
 export default function Newsletter() {
   return (
-    <section className="py-20 px-6 md:px-12 bg-luxury-sand/40 border-t border-luxury-sand">
+    <section className="py-20 px-4 sm:px-6 md:px-12 bg-luxury-sand/40 border-t border-luxury-sand">
       <div className="max-w-3xl mx-auto text-center space-y-6">
         <p className="text-xs uppercase tracking-extreme text-luxury-muted">Private Atelier List</p>
         <h2 className="text-3xl md:text-4xl font-serif font-light text-luxury-charcoal">

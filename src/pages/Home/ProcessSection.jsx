@@ -25,7 +25,7 @@ const STEPS = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 px-6 md:px-12 bg-luxury-onyx text-luxury-cream">
+    <section className="py-24 px-4 sm:px-6 md:px-12 bg-luxury-onyx text-luxury-cream">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-20">
           <p className="text-xs uppercase tracking-extreme text-luxury-champagne mb-3">Seamless Experience</p>

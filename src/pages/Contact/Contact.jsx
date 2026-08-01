@@ -11,7 +11,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-32 pb-24 bg-luxury-cream text-luxury-charcoal px-6 md:px-12 max-w-7xl mx-auto">
+    <div className="pt-32 pb-24 bg-luxury-cream text-luxury-charcoal px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
       <div className="text-center max-w-2xl mx-auto mb-16">
         <p className="text-xs uppercase tracking-extreme text-luxury-muted mb-3">Get In Touch</p>
         <h1 className="text-4xl md:text-6xl font-serif font-light mb-6">Bespoke Consultations</h1>

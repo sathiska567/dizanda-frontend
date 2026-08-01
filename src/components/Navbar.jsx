@@ -16,11 +16,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when navigating to a new route
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
-
   const navLinks = [
     { name: 'Gallery', path: '/gallery' },
     { name: 'About Us', path: '/about' },
@@ -45,7 +40,7 @@ export default function Navbar() {
               {location.pathname === link.path && (
                 <motion.div 
                   layoutId="navbar-indicator" 
-                  className="absolute bottom-0 left-0 w-full h-[1px] bg-luxury-champagne" 
+                  className="absolute bottom-0 left-0 w-full h-px bg-luxury-champagne" 
                 />
               )}
             </Link>
