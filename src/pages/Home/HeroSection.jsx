@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   return (
@@ -23,18 +24,18 @@ export default function HeroSection() {
               A refined atelier where architectural sugar artistry meets elegant flavor direction for weddings, editorial events, and private celebrations.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <a
-                href="/gallery"
+              <Link
+                to="/gallery"
                 className="inline-flex items-center justify-center rounded-full border border-luxury-charcoal bg-luxury-charcoal px-6 py-3 text-xs uppercase tracking-[0.32em] text-luxury-cream transition hover:bg-luxury-onyx"
               >
                 View Gallery
-              </a>
-              <a
-                href="/contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center rounded-full border border-luxury-charcoal bg-white/90 px-6 py-3 text-xs uppercase tracking-[0.32em] text-luxury-charcoal transition hover:bg-luxury-cream"
               >
                 Book Consultation
-              </a>
+              </Link>
             </div>
           </motion.div>
 
