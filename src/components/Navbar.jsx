@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag, Menu, X, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '../context/CartContext';
 
-export default function Navbar() {
+export default function Navbar({ onOpenCart }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { itemCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,12 +56,29 @@ export default function Navbar() {
 
         {/* Action Icons */}
         <div className="flex items-center space-x-6 text-luxury-charcoal">
-          <Link to="/" className="hover:text-luxury-champagne transition-colors hidden sm:block">
+          <Link to="/login" className="hover:text-luxury-champagne transition-colors hidden sm:block">
             <User size={18} strokeWidth={1.5} />
           </Link>
-          <button className="hover:text-luxury-champagne transition-colors relative">
+          <button
+            onClick={onOpenCart}
+            aria-label="Open cart"
+            data-cart-icon
+            className="hover:text-luxury-champagne transition-colors relative"
+          >
             <ShoppingBag size={18} strokeWidth={1.5} />
-            <span className="absolute -top-1.5 -right-2 bg-luxury-charcoal text-luxury-cream text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-sans">0</span>
+            <AnimatePresence>
+              {itemCount > 0 && (
+                <motion.span
+                  key={itemCount}
+                  initial={{ scale: 1.6, opacity: 0.6 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+                  className="absolute -top-1.5 -right-2 bg-luxury-charcoal text-luxury-cream text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-sans"
+                >
+                  {itemCount}
+                </motion.span>
+              )}
+            </AnimatePresence>
           </button>
           <button 
             onClick={() => setIsOpen(!isOpen)} 
@@ -99,7 +118,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link 
-              to="/" 
+              to="/login" 
               onClick={() => setIsOpen(false)} 
               className="py-2"
             >

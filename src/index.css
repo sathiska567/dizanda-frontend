@@ -29,3 +29,12 @@ body {
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

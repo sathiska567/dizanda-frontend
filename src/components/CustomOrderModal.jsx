@@ -1,22 +1,27 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, UploadCloud } from 'lucide-react';
+import { X, UploadCloud, Loader2 } from 'lucide-react';
+import { submitOrder } from '../lib/adminApi';
 
 const ADONE_TYPES = ['Full Dummy', 'Partial Dummy', 'Full Real'];
 const FLAVORS = ['Vanilla', 'Chocolate', 'Strawberry', 'Matcha', 'Caramel', 'Hazelnut', 'Lemon', 'Espresso'];
 const FLOWER_OPTIONS = ['Fresh Flowers', 'Artificial Flowers', 'Sugar Flowers', 'Mix'];
 
+const emptyForm = {
+  cakeIdea: '',
+  adoneType: ADONE_TYPES[0],
+  flavor: FLAVORS[0],
+  flowerChoice: FLOWER_OPTIONS[0],
+  name: '',
+  email: '',
+  phone: '',
+  uploadedFileName: '',
+};
+
 export default function CustomOrderModal({ open, onClose }) {
-  const [form, setForm] = useState({
-    cakeIdea: '',
-    adoneType: ADONE_TYPES[0],
-    flavor: FLAVORS[0],
-    flowerChoice: FLOWER_OPTIONS[0],
-    name: '',
-    email: '',
-    phone: '',
-    uploadedFileName: '',
-  });
+  const [form, setForm] = useState(emptyForm);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (field, value) => {
     setForm(prev => ({ ...prev, [field]: value }));
@@ -31,23 +36,39 @@ export default function CustomOrderModal({ open, onClose }) {
 
   useEffect(() => {
     if (open) {
-      setForm({
-        cakeIdea: '',
-        adoneType: ADONE_TYPES[0],
-        flavor: FLAVORS[0],
-        flowerChoice: FLOWER_OPTIONS[0],
-        name: '',
-        email: '',
-        phone: '',
-        uploadedFileName: '',
-      });
+      setForm(emptyForm);
+      setError('');
     }
   }, [open]);
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    console.log('Custom order submitted', form);
-    onClose();
+    if (!form.name || !form.email) {
+      setError('Please provide your name and email so we can reach you.');
+      return;
+    }
+    setError('');
+    setSubmitting(true);
+    try {
+      await submitOrder({
+        source: 'custom',
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.cakeIdea,
+        customDetails: {
+          adoneType: form.adoneType,
+          flavor: form.flavor,
+          flowerChoice: form.flowerChoice,
+          uploadedFileName: form.uploadedFileName,
+        },
+      });
+      onClose();
+    } catch (err) {
+      setError(err.message || 'Could not send your request. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -186,6 +207,8 @@ export default function CustomOrderModal({ open, onClose }) {
                 </div>
               </div>
 
+              {error && <p className="text-sm text-red-600">{error}</p>}
+
               <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
                 <button
                   type="button"
@@ -196,9 +219,11 @@ export default function CustomOrderModal({ open, onClose }) {
                 </button>
                 <button
                   type="submit"
-                  className="rounded-full bg-luxury-charcoal px-6 py-3 text-sm uppercase tracking-[0.3em] text-luxury-cream transition-colors hover:bg-luxury-onyx"
+                  disabled={submitting}
+                  className="flex items-center justify-center gap-2 rounded-full bg-luxury-charcoal px-6 py-3 text-sm uppercase tracking-[0.3em] text-luxury-cream transition-colors hover:bg-luxury-onyx disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Request
+                  {submitting && <Loader2 size={16} className="animate-spin" />}
+                  {submitting ? 'Sending…' : 'Send Request'}
                 </button>
               </div>
             </form>
