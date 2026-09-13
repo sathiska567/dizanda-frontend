@@ -1,0 +1,76 @@
+// Fallback content used if the admin API (dizanda-backend) is not reachable.
+// Mirrors the seed data in dizanda-backend/src/data/defaultData.js.
+export const DEFAULT_GALLERY_CONTENT = {
+  categories: [
+    { id: 'default-cat-1', name: 'Cake Structure' },
+    { id: 'default-cat-2', name: 'Golden Wedding Cakes' },
+    { id: 'default-cat-3', name: 'Cup Cakes' },
+    { id: 'default-cat-4', name: 'Brownies' },
+  ],
+  items: [
+    {
+      id: 'default-1',
+      title: 'Ivory Structure',
+      category: 'Cake Structure',
+      image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop',
+      description: 'Architectural vanilla sponge with delicate sugar panels and hidden passionfruit mousse.',
+      availableFlavors: ['Vanilla', 'Chocolate', 'Red Velvet', 'Hazelnut'],
+    },
+    {
+      id: 'default-2',
+      title: 'Golden Vows',
+      category: 'Golden Wedding Cakes',
+      image: 'https://images.unsplash.com/photo-1521305916504-4a1121188589?q=80&w=800&auto=format&fit=crop',
+      description: 'Three-tier wedding cake decorated in edible gold, white peonies, and champagne buttercream.',
+      availableFlavors: ['Champagne', 'Almond', 'Salted Caramel', 'Lemon'],
+    },
+    {
+      id: 'default-3',
+      title: 'Rose Petal Cupcakes',
+      category: 'Cup Cakes',
+      image: 'https://images.unsplash.com/photo-1549047026-2c1a62c0b13c?q=80&w=800&auto=format&fit=crop',
+      description: 'Mini cupcakes topped with cream cheese frosting, rose petals, and a hint of raspberry.',
+      availableFlavors: ['Vanilla', 'Chocolate', 'Strawberry', 'Matcha'],
+    },
+    {
+      id: 'default-4',
+      title: 'Brownie Bliss Box',
+      category: 'Brownies',
+      image: 'https://images.unsplash.com/photo-1516685018646-549d7e8d76d0?q=80&w=800&auto=format&fit=crop',
+      description: 'Decadent chocolate brownies with toasted nuts, sea salt, and caramel drizzle.',
+      availableFlavors: ['Classic Chocolate', 'Salted Caramel', 'Espresso', 'Nutella'],
+    },
+    {
+      id: 'default-5',
+      title: 'Golden Cascade',
+      category: 'Golden Wedding Cakes',
+      image: 'https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop',
+      description: 'Grand wedding cake with gold leaf accents, sugar orchids, and layered hazelnut praline.',
+      availableFlavors: ['Vanilla', 'Hazelnut', 'Champagne', 'Strawberry'],
+    },
+    {
+      id: 'default-6',
+      title: 'Sculpted Garden',
+      category: 'Cake Structure',
+      image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=800&auto=format&fit=crop',
+      description: 'Modern sculpted cake with edible blooms, mirror glaze, and chiffon sponge tiers.',
+      availableFlavors: ['White Chocolate', 'Lemon', 'Lavender', 'Coconut'],
+    },
+    {
+      id: 'default-7',
+      title: 'Frosted Romance',
+      category: 'Cup Cakes',
+      image: 'https://images.unsplash.com/photo-1523475496153-3d6cc3c08b79?q=80&w=800&auto=format&fit=crop',
+      description: 'A floral cupcake collection with buttercream swirls and delicate sugar petals.',
+      availableFlavors: ['Vanilla', 'Strawberry', 'Chocolate', 'Hazelnut'],
+    },
+    {
+      id: 'default-8',
+      title: 'Caramel Brownies',
+      category: 'Brownies',
+      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop',
+      description: 'Chewy brownies layered with caramel and topped with sea salt crystals.',
+      availableFlavors: ['Classic Chocolate', 'Caramel', 'Espresso', 'Nutella'],
+    },
+  ],
+};

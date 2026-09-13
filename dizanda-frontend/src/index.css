@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Luxury Color Palette */
+  --color-luxury-charcoal: #121212;
+  --color-luxury-onyx: #1A1A1A;
+  --color-luxury-champagne: #D4AF37;
+  --color-luxury-gold-hover: #AA8413;
+  --color-luxury-cream: #FDFBF7;
+  --color-luxury-sand: #F4EFE6;
+  --color-luxury-muted: #7A7A7A;
+
+  /* Typography Mapping */
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+
+  /* Tracking Speeds */
+  --letter-spacing-luxury: 0.2em;
+  --letter-spacing-extreme: 0.3em;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-luxury-cream);
+  color: var(--color-luxury-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lenis smooth-scroll: let Lenis drive scrolling itself while it's mounted */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
